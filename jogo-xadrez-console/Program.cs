@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using board;
+using System;
+
+namespace JogoXadrezConsole
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+}
