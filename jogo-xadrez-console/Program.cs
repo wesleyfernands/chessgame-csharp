@@ -1,4 +1,5 @@
 ﻿using board;
+using jogo_xadrez_console;
 using System;
 
 namespace JogoXadrezConsole
@@ -9,7 +10,9 @@ namespace JogoXadrezConsole
         {
             Board board = new Board(8, 8);
 
-            Console.WriteLine($"Testando classe, Quantidade de Linhas: " + board.Rows + ", Colunas: " + board.Columns);
+            Screen.PrintBoard(board);
+           
+            Console.ReadLine();
         }
     }
 }

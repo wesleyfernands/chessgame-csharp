@@ -9,8 +9,8 @@ namespace board
 {
     internal class Piece
     {
-        public Position Position { get; set; }
-        public Color Color { get; protected set; }
+        public Position Position { get; set; } 
+        public Color Color { get; protected set; } // enum
         public int QtyMoviments { get; protected set; }
         public Board Board { get; protected set; }
 
