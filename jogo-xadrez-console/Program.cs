@@ -7,7 +7,9 @@ namespace JogoXadrezConsole
     {
         static void Main(string[] args)
         {
+            Board board = new Board(8, 8);
 
+            Console.WriteLine($"Testando classe, Quantidade de Linhas: " + board.Rows + ", Colunas: " + board.Columns);
         }
     }
 }
