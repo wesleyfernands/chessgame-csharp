@@ -10,21 +10,12 @@ namespace JogoXadrezConsole
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Board board = new Board(8, 8);
+            ChessPosition posXadrez = new ChessPosition('a', 1);
 
-                board.PutPiece(new King(board, Color.Black), new Position(0, 0));
-                board.PutPiece(new Tower(board, Color.Black), new Position(1, 3));
-                board.PutPiece(new Tower(board, Color.Black), new Position(0, 2));
+            Console.WriteLine(posXadrez);
 
+            Console.WriteLine(posXadrez.ToPosition());
 
-                Screen.PrintBoard(board);
-            }
-            catch(BoardException e) 
-            {
-                Console.WriteLine(e.Message);
-            }
             Console.ReadLine();
         }
     }
