@@ -22,7 +22,7 @@ namespace jogo_xadrez_console
                     }
                     else
                     {
-                        Console.WriteLine(board.Piece(i, j) + " ");
+                        Console.Write(board.Piece(i, j) + " ");
                     }
                 }
                 Console.WriteLine();

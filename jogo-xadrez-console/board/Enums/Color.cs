@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace jogo_xadrez_console.board.Enums
 {
-    internal class Color
+        enum Color
     {
+        Black,
+        White
     }
 }
