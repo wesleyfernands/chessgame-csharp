@@ -8,7 +8,7 @@ namespace jogo_xadrez_console.board.Enums
 {
         enum Color
     {
-        Black,
+        Blue,
         White
     }
 }
