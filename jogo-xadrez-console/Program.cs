@@ -1,7 +1,7 @@
 ﻿using board;
 using jogo_xadrez_console;
 using System;
-using xadrez;
+using chess;
 using jogo_xadrez_console.board.Enums;
 
 namespace JogoXadrezConsole
@@ -12,14 +12,21 @@ namespace JogoXadrezConsole
         {
             try
             {
-                Board board = new Board(8, 8);
+                ChessMatch match = new ChessMatch();
 
-                board.PutPiece(new Tower(board, Color.Blue), new Position(0, 0));
-                board.PutPiece(new Tower(board, Color.Blue), new Position(1, 3));
-                board.PutPiece(new King(board, Color.White), new Position(0, 5));
-                board.PutPiece(new Tower(board, Color.White), new Position(2, 0));
+                while (!match.Finished)
+                {
+                    Console.Clear();
+                    Screen.PrintBoard(match.Board);
+                    Console.WriteLine();
 
-                Screen.PrintBoard(board);
+                    Console.Write("Origem: ");
+                    Position origin = Screen.ReadChessPosition().ToPosition();
+                    Console.Write("Destino: ");
+                    Position destiny = Screen.ReadChessPosition().ToPosition();
+
+                    match.ExecuteMovement(origin, destiny);
+                }
             }
             catch(BoardException e)
             {

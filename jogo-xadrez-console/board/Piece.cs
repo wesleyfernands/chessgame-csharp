@@ -21,5 +21,10 @@ namespace board
             Color = color;
             QtyMoviments = 0;
         }
+
+        public void IncrementQtyMoviments()
+        {
+            QtyMoviments++;
+        }
     }
 }

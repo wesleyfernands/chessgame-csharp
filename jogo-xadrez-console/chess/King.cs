@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using board;
 using jogo_xadrez_console.board.Enums;
 
-namespace xadrez
+namespace chess
 {
     internal class King : Piece
     {
