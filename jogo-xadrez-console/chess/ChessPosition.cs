@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace chess
 {
-    internal class ChessPosition
+    class ChessPosition
     {
         public char Column { get; set; }
         public int Row { get; set; }

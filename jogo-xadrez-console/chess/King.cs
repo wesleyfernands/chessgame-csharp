@@ -5,7 +5,7 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using board;
-using jogo_xadrez_console.board.Enums;
+using Enums;
 
 namespace chess
 {

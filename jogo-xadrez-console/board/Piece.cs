@@ -1,4 +1,4 @@
-﻿using jogo_xadrez_console.board.Enums;
+﻿using Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace board
 {
-    internal abstract class Piece
+    abstract class Piece
     {
         public Position Position { get; set; } 
         public Color Color { get; protected set; } // enum
@@ -25,6 +25,27 @@ namespace board
         public void IncrementQtyMoviments()
         {
             QtyMoviments++;
+        }
+
+        public bool PredictPossibleMoviments()
+        {
+            bool[,] mat = PossibleMoviments();
+            for (int i = 0; i < Board.Rows; i++)
+            {
+                for (int j = 0; j < Board.Columns; j++)
+                {
+                    if (mat[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool CanMoveTo(Position pos)
+        {
+            return PossibleMoviments()[pos.Row, pos.Column];
         }
 
         public abstract bool[,] PossibleMoviments();
