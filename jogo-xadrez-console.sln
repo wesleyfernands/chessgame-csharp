@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jogo-xadrez-console", "jogo-xadrez-console\jogo-xadrez-console.csproj", "{FFEB42B0-CC5D-473A-BE2B-8CD552DD3363}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xadrez-console-english", "..\XadrezConsole\CopiaXadrezIngles\copia-jogo-xadrez-console\jogo-xadrez-console\xadrez-console-english.csproj", "{CD21BF78-A71B-4484-B095-851BEC5F3D37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FFEB42B0-CC5D-473A-BE2B-8CD552DD3363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFEB42B0-CC5D-473A-BE2B-8CD552DD3363}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFEB42B0-CC5D-473A-BE2B-8CD552DD3363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD21BF78-A71B-4484-B095-851BEC5F3D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD21BF78-A71B-4484-B095-851BEC5F3D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD21BF78-A71B-4484-B095-851BEC5F3D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD21BF78-A71B-4484-B095-851BEC5F3D37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

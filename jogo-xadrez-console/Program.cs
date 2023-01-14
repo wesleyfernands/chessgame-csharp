@@ -1,63 +1,59 @@
-﻿using board;
-using jogo_xadrez_console;
-using System;
-using chess;
-using Enums;
-using System.Text;
+﻿using System;
+using tabuleiro;
+using xadrez;
 
-
-namespace JogoXadrezConsole
+namespace xadrez_console
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+
             try
             {
-                ChessMatch match = new ChessMatch();
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                while (!match.Finished)
+                while (!partida.Terminada)
                 {
+
                     try
                     {
                         Console.Clear();
-                        Screen.PrintBoard(match.Board);
+                        Tela.imprimirTabuleiro(partida.Tab);
                         Console.WriteLine();
-                        Console.WriteLine("Turno: " + match.Turn);
-                        Console.WriteLine("Aguardando jogada: " + match.CurrentPlayer);
+                        Console.WriteLine("Turno: " + partida.Turno);
+                        Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
-                        Position origin = Screen.ReadChessPosition().ToPosition();
-                        match.ValidatePositionOrigin(origin);
+                        Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                        partida.validarPosicaoDeOrigem(origem);
 
-                        bool[,] possiblePositions = match.Board.Piece(origin).PossibleMoviments();
+                        bool[,] posicoesPossiveis = partida.Tab.peca(origem).movimentosPossiveis();
 
                         Console.Clear();
-                        Screen.PrintBoard(match.Board, possiblePositions);
+                        Tela.imprimirTabuleiro(partida.Tab, posicoesPossiveis);
 
                         Console.WriteLine();
                         Console.Write("Destino: ");
-                        Position destiny = Screen.ReadChessPosition().ToPosition();
-                        match.ValidatePositionDestiny(origin, destiny);
+                        Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+                        partida.validarPosicaoDeDestino(origem, destino);
 
-                        match.AccomplishMovement(origin, destiny);
+                        partida.realizaJogada(origem, destino);
                     }
-                    catch (BoardException e)
+                    catch (TabuleiroException e)
                     {
                         Console.WriteLine(e.Message);
                         Console.ReadLine();
                     }
                 }
+
             }
-            catch (BoardException e)
+            catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+
             Console.ReadLine();
         }
     }
