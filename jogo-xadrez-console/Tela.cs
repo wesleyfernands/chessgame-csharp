@@ -14,12 +14,20 @@ namespace xadrez_console
             ImprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-            if (partida.Xeque)
+            if (!partida.Terminada)
             {
-                Console.WriteLine();
-                Console.WriteLine("XEQUE!");
+                Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                if (partida.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
             }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.JogadorAtual);
+            }
+
         }
 
         public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
@@ -54,7 +62,7 @@ namespace xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    imprimirPeca(tab.peca(i, j));
+                    ImprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
@@ -80,7 +88,7 @@ namespace xadrez_console
                     {
                         Console.BackgroundColor = fundoOriginal;
                     }
-                    imprimirPeca(tab.peca(i, j));
+                    ImprimirPeca(tab.peca(i, j));
                     Console.BackgroundColor = fundoOriginal;
                 }
                 Console.WriteLine();
@@ -89,7 +97,7 @@ namespace xadrez_console
             Console.BackgroundColor = fundoOriginal;
         }
 
-        public static PosicaoXadrez lerPosicaoXadrez()
+        public static PosicaoXadrez LerPosicaoXadrez()
         {
             string s = Console.ReadLine();
             char coluna = s[0];
@@ -97,7 +105,7 @@ namespace xadrez_console
             return new PosicaoXadrez(coluna, linha);
         }
 
-        public static void imprimirPeca(Peca peca)
+        public static void ImprimirPeca(Peca peca)
         {
 
             if (peca == null)

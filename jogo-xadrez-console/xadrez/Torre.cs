@@ -14,13 +14,13 @@ namespace xadrez
             return "T";
         }
 
-        private bool podeMover(Posicao pos)
+        private bool PodeMover(Posicao pos)
         {
             Peca p = Tab.peca(pos);
             return p == null || p.Cor != Cor;
         }
 
-        public override bool[,] movimentosPossiveis()
+        public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tab.linhas, Tab.colunas];
 
@@ -28,7 +28,7 @@ namespace xadrez
 
             // acima
             pos.definirValores(Posicao.Linha - 1, Posicao.Coluna);
-            while (Tab.posicaoValida(pos) && podeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
@@ -40,7 +40,7 @@ namespace xadrez
 
             // abaixo
             pos.definirValores(Posicao.Linha + 1, Posicao.Coluna);
-            while (Tab.posicaoValida(pos) && podeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
@@ -52,7 +52,7 @@ namespace xadrez
 
             // direita
             pos.definirValores(Posicao.Linha, Posicao.Coluna + 1);
-            while (Tab.posicaoValida(pos) && podeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
@@ -64,7 +64,7 @@ namespace xadrez
 
             // esquerda
             pos.definirValores(Posicao.Linha, Posicao.Coluna - 1);
-            while (Tab.posicaoValida(pos) && podeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.peca(pos) != null && Tab.peca(pos).Cor != Cor)
